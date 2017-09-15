@@ -34,12 +34,12 @@ var dataSet = [
   {
     id: 1,
     title: 'Item 1',
-    selected: true
+    selected: false
   },
   {
     id: 2,
     title: 'Item 2',
-    selected: false
+    selected: true
   },
   {
     id: 3,

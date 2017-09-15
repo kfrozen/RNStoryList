@@ -13,7 +13,17 @@ export class BaseFlatList extends Component {
   constructor(props){
     super(props);
 
-    this.state = {selected: props.data[0].id};
+    var defaultSelection;
+
+    props.data.forEach(function(element) {
+      if(element.selected)
+      {
+        defaultSelection = element.id;
+        return;
+      }
+    }, this);
+
+    this.state = {selected: defaultSelection};
   }
 
   _onPressItem = (id, title) => {
@@ -28,8 +38,8 @@ export class BaseFlatList extends Component {
       <FlatList
         data={this.props.data}
         extraData={this.state}
-        keyExtractor={(item, index) => {item.id}}
-        renderItem={({item}) => <ListItem id={item.id} title={item.title} onPressItem={this._onPressItem} selected={this.state.selected}/>}
+        keyExtractor={(item, index) => item.id}
+        renderItem={({item}) => <ListItem key={item.id} id={item.id} title={item.title} onPressItem={this._onPressItem} selected={this.state.selected}/>}
       />
     );
   }
