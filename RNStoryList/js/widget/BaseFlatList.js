@@ -39,7 +39,8 @@ export class BaseFlatList extends Component {
         data={this.props.data}
         extraData={this.state}
         keyExtractor={(item, index) => item.id}
-        renderItem={({item}) => <ListItem key={item.id} id={item.id} title={item.title} onPressItem={this._onPressItem} selected={this.state.selected}/>}
+        renderItem={({item}) => <ListItem key={item.id} id={item.id} title={item.title} 
+          image={item.image} onPressItem={this._onPressItem} selected={this.state.selected}/>}
       />
     );
   }

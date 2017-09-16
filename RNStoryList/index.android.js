@@ -34,42 +34,42 @@ var dataSet = [
   {
     id: 1,
     title: 'Item 1',
-    selected: false
+    selected: true,
   },
   {
     id: 2,
     title: 'Item 2',
-    selected: true
+    selected: false,
   },
   {
     id: 3,
     title: 'Item 3',
-    selected: false
+    selected: false,
   },
   {
     id: 4,
     title: 'Item 4',
-    selected: false
+    selected: false,
   },
   {
     id: 5,
     title: 'Item 5',
-    selected: false
+    selected: false,
   },
   {
     id: 6,
     title: 'Item 6',
-    selected: false
+    selected: false,
   },
   {
     id: 7,
     title: 'Item 7',
-    selected: false
+    selected: false,
   },
   {
     id: 8,
     title: 'Item 8',
-    selected: false
+    selected: false,
   }
 ];
 

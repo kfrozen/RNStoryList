@@ -4,7 +4,8 @@ import {
   StyleSheet,
   Text,
   ToastAndroid,
-  TouchableHighlight
+  ImageBackground,
+  TouchableOpacity
 } from 'react-native';
 
 export class ListItem extends Component {
@@ -20,29 +21,35 @@ export class ListItem extends Component {
 
     let isSelected = this.props.id == this.props.selected;
 
-    let containerStyle = isSelected ? [styles.container_base, styles.container_selected] : [styles.container_base, styles.container_unselected];
+    let imageStyle = isSelected ? [styles.image_base, styles.image_selected] : [styles.image_base, styles.image_unselected];
 
     return (
-      <TouchableHighlight style={containerStyle} onPress={this._onPress}>
-        <Text style={styles.title}>
-          {this.props.title}
-        </Text>
-      </TouchableHighlight>
+      <TouchableOpacity style={styles.container} activeOpacity={0.75} onPress={this._onPress}>
+        <ImageBackground source={require('./img/item_background.jpg')} style={imageStyle}>
+          <Text style={styles.title}>
+            {this.props.title}
+          </Text>
+      </ImageBackground>
+      </TouchableOpacity>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container_base: {
-    alignItems: 'flex-start',
-    height: 175,
+  container: {
+    height: 200,
     marginBottom: 10
   },
-  container_unselected:{
-    backgroundColor: '#cccccc',
+  image_base: {
+    alignItems: 'flex-start',
+    height: 200,
+    borderBottomWidth: 5
   },
-  container_selected:{
-    backgroundColor: 'blue',
+  image_unselected:{
+    borderColor: 'transparent'
+  },
+  image_selected:{
+    borderColor: 'blue'
   },
   title: {
     flex:1,
