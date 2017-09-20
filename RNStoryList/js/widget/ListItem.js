@@ -32,7 +32,7 @@ export class ListItem extends Component {
     let imageStyle = isSelected ? [styles.image_base, styles.image_selected] : [styles.image_base, styles.image_unselected];
 
     return (
-      <TouchableOpacity style={styles.container} activeOpacity={0.75} onPress={this._onPress}>
+      <TouchableOpacity style={styles.container} activeOpacity={0.7} onPress={this._onPress}>
         <ImageBackground source={{uri: "https://facebook.github.io/react/img/logo_og.png"}} style={imageStyle}>
           <Text style={styles.title}>
             {this.props.title}
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   image_base: {
     alignItems: 'flex-start',
-    height: 210,
+    height: 200,
     borderBottomWidth: 5
   },
   image_unselected:{
