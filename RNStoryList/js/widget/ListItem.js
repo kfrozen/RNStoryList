@@ -13,6 +13,14 @@ export class ListItem extends Component {
     super(props);
   }
 
+  static defaultProps = {
+    selected: false
+  };
+
+  static propTypes = {
+    selected: React.PropTypes.number.isRequired
+  };
+
   _onPress = () => {
     this.props.onPressItem(this.props.id, this.props.title);
   };

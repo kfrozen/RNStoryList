@@ -10,74 +10,85 @@ import {
   StyleSheet,
   FlatList,
   Text,
+  ToastAndroid,
+  ActivityIndicator,
   View
 } from 'react-native';
 import {
   BaseFlatList
 } from '../RNStoryList/js/widget/BaseFlatList';
+import {
+  VideoPresenter
+} from '../RNStoryList/js/presenters/VideoPresenter'
 
 export default class Main extends Component {
 
+  constructor(props){
+    super(props);
+
+    this.state = {
+      isLoading: true,
+      dataSource: []
+    }
+  }
+
+  _onDataLoaded = (error, response) => {
+    this.setState({isLoading: false, dataSource: response});
+  }
+
+  componentDidMount() {
+    let videoPresenter = new VideoPresenter(this._onDataLoaded);
+
+    videoPresenter.loadVideos();
+  }
+
   render() {
     
-    return (
-      <View style={styles.container}>
-        <BaseFlatList
-          data={dataSet}
-        />
-      </View>
-    );
+    let isShowLoading = this.state.isLoading;
+    let dataSource = this.state.dataSource;
+
+    if(isShowLoading){
+      return (
+        <View style={styles.container}>
+          <ActivityIndicator color='blue' size='large'/>
+        </View>
+      );
+    }
+    else if(dataSource.length == 0){
+      return (
+        <View style={styles.container}>
+          <Text style={styles.errorMsg}>
+            Oops! No video is available now...
+          </Text>
+        </View>
+      );
+    }
+    else{
+      return (
+        <View style={styles.container}>
+          <BaseFlatList
+            data={dataSource}
+          />
+        </View>
+      );
+    }
   }
 }
-
-var dataSet = [
-  {
-    id: 1,
-    title: 'Item 1',
-    selected: true,
-  },
-  {
-    id: 2,
-    title: 'Item 2',
-    selected: false,
-  },
-  {
-    id: 3,
-    title: 'Item 3',
-    selected: false,
-  },
-  {
-    id: 4,
-    title: 'Item 4',
-    selected: false,
-  },
-  {
-    id: 5,
-    title: 'Item 5',
-    selected: false,
-  },
-  {
-    id: 6,
-    title: 'Item 6',
-    selected: false,
-  },
-  {
-    id: 7,
-    title: 'Item 7',
-    selected: false,
-  },
-  {
-    id: 8,
-    title: 'Item 8',
-    selected: false,
-  }
-];
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 10
+    paddingTop: 10,
+    justifyContent: 'center'
   },
+  errorMsg: {
+    flexWrap: 'wrap',
+    fontSize: 20,
+    fontWeight:'bold',
+    textAlign: 'center',
+    alignSelf: 'center',
+    color: '#666666',
+  }
 });
 
 AppRegistry.registerComponent('RNStoryList', () => Main);
