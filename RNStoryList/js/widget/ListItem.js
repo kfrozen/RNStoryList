@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
   },
   image_base: {
     alignItems: 'flex-start',
-    height: 200,
+    height: 210,
     borderBottomWidth: 5
   },
   image_unselected:{
