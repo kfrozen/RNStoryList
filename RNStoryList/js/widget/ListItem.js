@@ -33,7 +33,7 @@ export class ListItem extends Component {
 
     return (
       <TouchableOpacity style={styles.container} activeOpacity={0.75} onPress={this._onPress}>
-        <ImageBackground source={require('./img/item_background.jpg')} style={imageStyle}>
+        <ImageBackground source={{uri: "https://facebook.github.io/react/img/logo_og.png"}} style={imageStyle}>
           <Text style={styles.title}>
             {this.props.title}
           </Text>
