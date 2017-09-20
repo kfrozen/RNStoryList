@@ -1,4 +1,4 @@
-
+import {UIVideo} from '../modal/UIVideo'
 
 export class VideoPresenter{
 
@@ -15,7 +15,7 @@ export class VideoPresenter{
     })
     .then((response) => response.json())
     .then((responseJson) => {
-      this.callback(null, responseJson);
+      this.callback(null, UIVideo.converter(responseJson));
     })
     .catch((error) => {
       this.callback(error, []);
