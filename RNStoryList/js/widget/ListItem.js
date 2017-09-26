@@ -7,6 +7,7 @@ import {
   ImageBackground,
   TouchableOpacity
 } from 'react-native';
+import {NetworkHelper} from '../helpers/NetworkHelper'
 
 export class ListItem extends Component {
   constructor(props){
@@ -33,7 +34,7 @@ export class ListItem extends Component {
 
     return (
       <TouchableOpacity style={styles.container} activeOpacity={0.7} onPress={this._onPress}>
-        <ImageBackground source={{uri: "https://facebook.github.io/react/img/logo_og.png"}} style={imageStyle}>
+        <ImageBackground source={{uri: NetworkHelper.getDefault().getImageUrl(this.props.image)}} style={imageStyle}>
           <Text style={styles.title}>
             {this.props.title}
           </Text>
