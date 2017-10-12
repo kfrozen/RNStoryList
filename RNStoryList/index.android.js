@@ -18,8 +18,8 @@ import {
   BaseFlatList
 } from '../RNStoryList/js/widget/BaseFlatList';
 import {
-  VideoPresenter
-} from '../RNStoryList/js/presenters/VideoPresenter'
+  ArticlePresenter
+} from '../RNStoryList/js/presenters/ArticlePresenter'
 
 export default class Main extends Component {
 
@@ -37,9 +37,9 @@ export default class Main extends Component {
   }
 
   componentDidMount() {
-    let videoPresenter = new VideoPresenter(this._onDataLoaded);
+    let articlePresenter = new ArticlePresenter(this._onDataLoaded);
 
-    videoPresenter.loadVideos();
+    articlePresenter.loadArticles();
   }
 
   render() {
