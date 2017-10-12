@@ -23,20 +23,20 @@ export class ListItem extends Component {
   };
 
   _onPress = () => {
-    this.props.onPressItem(this.props.id, this.props.title);
+    this.props.onPressItem(this.props.bean.id, this.props.bean.title);
   };
 
   render() {
 
-    let isSelected = this.props.id == this.props.selected;
+    let isSelected = this.props.bean.id == this.props.selected;
 
     let imageStyle = isSelected ? [styles.image_base, styles.image_selected] : [styles.image_base, styles.image_unselected];
 
     return (
       <TouchableOpacity style={styles.container} activeOpacity={0.7} onPress={this._onPress}>
-        <ImageBackground source={{uri: NetworkHelper.getDefault().getImageUrl(this.props.image)}} style={imageStyle}>
+        <ImageBackground source={{uri: NetworkHelper.getDefault().getImageUrl(this.props.bean.image)}} style={imageStyle}>
           <Text style={styles.title}>
-            {this.props.title}
+            {this.props.bean.title}
           </Text>
       </ImageBackground>
       </TouchableOpacity>
