@@ -45,4 +45,4 @@ export class BaseFlatList extends Component {
   }
 }
 
-AppRegistry.registerComponent('BaseFlatList', () => BaseFlatList);
+// AppRegistry.registerComponent('BaseFlatList', () => BaseFlatList);

@@ -7,7 +7,7 @@ export class ArticlePresenter{
   constructor(callback){
     this.callback = callback;
     this.converter = new UIArticleConverter((item) => {
-      return new UIArticle(item.id, item.title, item.image, item.selected); 
+      return new UIArticle(item.id, item.title, item.image, item.selected, item.desc); 
     });
   }
 

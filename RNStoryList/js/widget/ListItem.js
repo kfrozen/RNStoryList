@@ -12,6 +12,8 @@ import {NetworkHelper} from '../helpers/NetworkHelper'
 export class ListItem extends Component {
   constructor(props){
     super(props);
+
+    this.item = props.bean;
   }
 
   static defaultProps = {
@@ -23,20 +25,20 @@ export class ListItem extends Component {
   };
 
   _onPress = () => {
-    this.props.onPressItem(this.props.bean.id, this.props.bean.title);
+    this.props.onPressItem(this.item.id, this.item.title);
   };
 
   render() {
 
-    let isSelected = this.props.bean.id == this.props.selected;
+    let isSelected = this.item.id == this.props.selected;
 
     let imageStyle = isSelected ? [styles.image_base, styles.image_selected] : [styles.image_base, styles.image_unselected];
 
     return (
       <TouchableOpacity style={styles.container} activeOpacity={0.7} onPress={this._onPress}>
-        <ImageBackground source={{uri: NetworkHelper.getDefault().getImageUrl(this.props.bean.image)}} style={imageStyle}>
+        <ImageBackground source={{uri: NetworkHelper.getDefault().getImageUrl(this.item.image)}} style={imageStyle}>
           <Text style={styles.title}>
-            {this.props.bean.title}
+            {this.item.title}
           </Text>
       </ImageBackground>
       </TouchableOpacity>
@@ -50,7 +52,9 @@ const styles = StyleSheet.create({
     marginBottom: 10
   },
   image_base: {
-    alignItems: 'flex-start',
+    flexDirection: 'column',
+    justifyContent: 'flex-end',  //Main direction -- Y
+    alignItems: 'stretch',  //Vice direction -- X
     height: 200,
     borderBottomWidth: 5
   },
@@ -61,13 +65,13 @@ const styles = StyleSheet.create({
     borderColor: 'blue'
   },
   title: {
-    flex:1,
+    height: 75,
     fontSize: 20,
     fontWeight:'bold',
     textAlignVertical: 'center',
-    color: '#FFFFFF',
-    margin: 10,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    color: 'yellow',
+    padding: 10,
+    marginBottom: 10
   },
 });
-
-AppRegistry.registerComponent('ListItem', () => ListItem);
