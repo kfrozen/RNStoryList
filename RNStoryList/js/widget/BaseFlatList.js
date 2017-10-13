@@ -26,10 +26,12 @@ export class BaseFlatList extends Component {
     this.state = {selected: defaultSelection};
   }
 
-  _onPressItem = (id, title) => {
-    this.setState({selected: id}, () => {
-      ToastAndroid.show(title + ' was CLICKED!', ToastAndroid.SHORT);
+  _onPressItem = (item) => {
+    this.setState({selected: item.id}, () => {
+      //ToastAndroid.show(item.title + ' was CLICKED!', ToastAndroid.SHORT);
     });
+
+    this.props.navigate('ArticleDetail', {article: item});
   }
 
   render() {

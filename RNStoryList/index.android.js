@@ -5,11 +5,7 @@
  */
 
 import React from 'react';
-import {
-  AppRegistry
-} from 'react-native';
-import {
-  ArticleListComp
-} from '../RNStoryList/js/widget/ArticleListComp';
+import {AppRegistry} from 'react-native';
+import {Main} from '../RNStoryList/js/Main';
 
-AppRegistry.registerComponent('RNStoryList', () => ArticleListComp);
+AppRegistry.registerComponent('RNStoryList', () => Main);

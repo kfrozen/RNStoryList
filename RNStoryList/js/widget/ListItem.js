@@ -25,14 +25,14 @@ export class ListItem extends Component {
   };
 
   _onPress = () => {
-    this.props.onPressItem(this.item.id, this.item.title);
+    this.props.onPressItem(this.item);
   };
 
   render() {
 
     let isSelected = this.item.id == this.props.selected;
 
-    let imageStyle = isSelected ? [styles.image_base, styles.image_selected] : [styles.image_base, styles.image_unselected];
+    let imageStyle = [styles.image_base, styles.image_unselected]; //isSelected ? [styles.image_base, styles.image_selected] : [styles.image_base, styles.image_unselected];
 
     return (
       <TouchableOpacity style={styles.container} activeOpacity={0.7} onPress={this._onPress}>

@@ -15,7 +15,7 @@ import {
   ArticlePresenter
 } from '../presenters/ArticlePresenter'
 
-export class ArticleListComp extends Component {
+export default class ArticleListComp extends Component {
 
   constructor(props){
     super(props);
@@ -25,6 +25,12 @@ export class ArticleListComp extends Component {
       dataSource: []
     }
   }
+
+  static navigationOptions = {
+    title: 'Articles',
+    headerStyle: {backgroundColor: 'black'},
+    headerTitleStyle: {color: 'yellow'}
+  };
 
   _onDataLoaded = (error, response) => {
     this.setState({isLoading: false, dataSource: response});
@@ -37,7 +43,7 @@ export class ArticleListComp extends Component {
   }
 
   render() {
-    
+    const {navigate} = this.props.navigation;
     let isShowLoading = this.state.isLoading;
     let dataSource = this.state.dataSource;
 
@@ -62,6 +68,7 @@ export class ArticleListComp extends Component {
         <View style={styles.container}>
           <BaseFlatList
             data={dataSource}
+            navigate={navigate}
           />
         </View>
       );
@@ -73,7 +80,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     paddingTop: 10,
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   errorMsg: {
     flexWrap: 'wrap',
