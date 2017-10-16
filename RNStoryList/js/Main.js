@@ -1,14 +1,17 @@
 import React from 'react';
 import {StackNavigator} from 'react-navigation';
-import ArticleListComp from '../js/widget/ArticleListComp';
-import ArticleDetailComp from '../js/widget/ArticalDetailComp';
+import ArticleListComp from '../js/components/ArticleListComp';
+import ArticleDetailComp from '../js/components/ArticalDetailComp';
+import Splash from '../js/components/Splash';
 
 export const Main = StackNavigator(
     {
+        Splash: {screen: Splash},
         ArticleList: {screen: ArticleListComp},
         ArticleDetail: {screen: ArticleDetailComp},
     },
     {
-        initialRouteName: 'ArticleList'
+        initialRouteName: 'Splash',
+        headerMode: 'screen'
     }
 );

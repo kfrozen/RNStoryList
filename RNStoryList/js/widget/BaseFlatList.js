@@ -1,15 +1,11 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   FlatList,
-  ToastAndroid,
   View
 } from 'react-native';
-import {
-  ListItem
-} from './ListItem';
+import ListItem from './ListItem';
 
-export class BaseFlatList extends Component {
+export default class BaseFlatList extends Component {
   constructor(props){
     super(props);
 
@@ -46,5 +42,3 @@ export class BaseFlatList extends Component {
     );
   }
 }
-
-// AppRegistry.registerComponent('BaseFlatList', () => BaseFlatList);

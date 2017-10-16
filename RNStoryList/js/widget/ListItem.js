@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   ToastAndroid,
@@ -9,7 +8,7 @@ import {
 } from 'react-native';
 import {NetworkHelper} from '../helpers/NetworkHelper'
 
-export class ListItem extends Component {
+export default class ListItem extends Component {
   constructor(props){
     super(props);
 

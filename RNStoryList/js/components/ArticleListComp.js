@@ -8,9 +8,7 @@ import {
   ActivityIndicator,
   View
 } from 'react-native';
-import {
-  BaseFlatList
-} from '../widget/BaseFlatList';
+import BaseFlatList from '../widget/BaseFlatList';
 import {
   ArticlePresenter
 } from '../presenters/ArticlePresenter'
@@ -29,7 +27,8 @@ export default class ArticleListComp extends Component {
   static navigationOptions = {
     title: 'Articles',
     headerStyle: {backgroundColor: 'black'},
-    headerTitleStyle: {color: 'yellow'}
+    headerTitleStyle: {color: 'yellow'},
+    headerLeft: null
   };
 
   _onDataLoaded = (error, response) => {
