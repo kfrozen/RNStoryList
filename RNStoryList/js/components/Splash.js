@@ -5,6 +5,7 @@ import {
   Image,
   StyleSheet
 } from 'react-native';
+import { NavigationActions } from 'react-navigation';
 import AnimatedContainer from '../widget/FadeZoomInContainer';
 
 export default class Splash extends Component {
@@ -14,9 +15,14 @@ export default class Splash extends Component {
 
     componentDidMount() {
         this.timer = setTimeout(() => {
-            const {navigate} = this.props.navigation;
+            const resetAction = NavigationActions.reset({
+                index: 0,
+                actions: [
+                    NavigationActions.navigate({routeName: 'ArticleList'})
+                ]
+            });
 
-            navigate('ArticleList');
+            this.props.navigation.dispatch(resetAction);
         }, 2000);
     };
 
