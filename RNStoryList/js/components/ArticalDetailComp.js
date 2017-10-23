@@ -32,7 +32,7 @@ export default class ArticalDetailComp extends Component{
                             {article.title}
                         </Text>
                     </View>
-                    <Image style={styles.image} source={{uri: NetworkHelper.getDefault().getImageUrl(article.image)}}/>
+                    <Image style={styles.image} source={{uri: article.image}}/>
                     <Text style={styles.description}>
                         {article.desc}
                     </Text>

@@ -16,11 +16,11 @@ export default class ListItem extends Component {
   }
 
   static defaultProps = {
-    selected: false
+    selected: ""
   };
 
   static propTypes = {
-    selected: React.PropTypes.number.isRequired
+    selected: React.PropTypes.string.isRequired
   };
 
   _onPress = () => {
@@ -35,7 +35,7 @@ export default class ListItem extends Component {
 
     return (
       <TouchableOpacity style={styles.container} activeOpacity={0.7} onPress={this._onPress}>
-        <ImageBackground source={{uri: NetworkHelper.getDefault().getImageUrl(this.item.image)}} style={imageStyle}>
+        <ImageBackground source={{uri: this.item.image}} style={imageStyle}>
           <Text style={styles.title}>
             {this.item.title}
           </Text>
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
   },
   title: {
     height: 75,
-    fontSize: 20,
+    fontSize: 18,
     fontWeight:'bold',
     textAlignVertical: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.4)',
