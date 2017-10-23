@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
+  View,
   ToastAndroid,
   ImageBackground,
   TouchableOpacity
@@ -36,10 +37,15 @@ export default class ListItem extends Component {
     return (
       <TouchableOpacity style={styles.container} activeOpacity={0.7} onPress={this._onPress}>
         <ImageBackground source={{uri: this.item.image}} style={imageStyle}>
-          <Text style={styles.title}>
-            {this.item.title}
-          </Text>
-      </ImageBackground>
+          <View style={styles.content_panel}>
+            <Text style={styles.title}>
+              {this.item.title}
+            </Text>
+            <Text style={styles.date}>
+              {this.item.releaseDate}
+            </Text>
+          </View>
+        </ImageBackground>
       </TouchableOpacity>
     );
   }
@@ -47,14 +53,14 @@ export default class ListItem extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    height: 200,
+    height: 240,
     marginBottom: 10
   },
   image_base: {
     flexDirection: 'column',
     justifyContent: 'flex-end',  //Main direction -- Y
     alignItems: 'stretch',  //Vice direction -- X
-    height: 200,
+    height: 240,
     borderBottomWidth: 5
   },
   image_unselected:{
@@ -63,14 +69,26 @@ const styles = StyleSheet.create({
   image_selected:{
     borderColor: 'blue'
   },
+  content_panel: {
+    height: 100,
+    backgroundColor: 'rgba(0, 0, 0, 0.4)',
+    marginBottom: 10,
+    flexDirection: 'column'
+  },
   title: {
-    height: 75,
+    height: 65,
     fontSize: 18,
     fontWeight:'bold',
     textAlignVertical: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.4)',
     color: 'yellow',
-    padding: 10,
-    marginBottom: 10
+    padding: 10
   },
+  date: {
+    height: 35,
+    fontSize: 13,
+    fontWeight:'bold',
+    textAlignVertical: 'center',
+    color: 'white',
+    paddingLeft: 10
+  }
 });

@@ -31,6 +31,9 @@ export default class ArticalDetailComp extends Component{
                         <Text style={styles.title}>
                             {article.title}
                         </Text>
+                        <Text style={styles.date}>
+                            {article.releaseDate}
+                        </Text>
                     </View>
                     <Image style={styles.image} source={{uri: article.image}}/>
                     <Text style={styles.description}>
@@ -48,17 +51,26 @@ const styles = StyleSheet.create({
       margin: 10
     },
     titleContainer: {
-      height: 85,
+      height: 100,
+      flexDirection: 'column',
       borderBottomColor: 'rgba(231, 223, 8, 0.75)',
       borderBottomWidth: 1
     },
     title: {
-      flex:1,
+      flex:2,
       fontSize: 24,
       fontWeight:'bold',
       textAlignVertical: 'center',
       color: 'yellow',
-      margin: 10
+      marginLeft: 10
+    },
+    date: {
+        flex:1,
+        fontSize: 15,
+        fontWeight:'bold',
+        textAlignVertical: 'center',
+        color: 'white',
+        marginLeft: 10
     },
     description: {
         flex:1,
