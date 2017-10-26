@@ -1,13 +1,13 @@
 import React from 'react';
 import {StackNavigator} from 'react-navigation';
-import ArticleListComp from '../js/components/ArticleListComp';
+import HomeComp from '../js/components/HomeComp';
 import ArticleDetailComp from '../js/components/ArticalDetailComp';
 import Splash from '../js/components/Splash';
 
 export const Main = StackNavigator(
     {
         Splash: {screen: Splash},
-        ArticleList: {screen: ArticleListComp},
+        Home: {screen: HomeComp},
         ArticleDetail: {screen: ArticleDetailComp},
     },
     {

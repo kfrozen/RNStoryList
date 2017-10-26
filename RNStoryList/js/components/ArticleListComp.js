@@ -4,6 +4,7 @@ import {
   StyleSheet,
   FlatList,
   Text,
+  Image,
   ToastAndroid,
   ActivityIndicator,
   View
@@ -25,10 +26,15 @@ export default class ArticleListComp extends Component {
   }
 
   static navigationOptions = {
-    title: 'Articles',
+    title: '新闻',
     headerStyle: {backgroundColor: 'black'},
     headerTitleStyle: {color: 'yellow'},
-    headerLeft: null
+    headerLeft: null,
+    tabBarIcon: ({focused, tintColor}) => (
+      <Image
+          source={require('./img/bottombar_icon_articles.png')}
+          style={{width: 24, height: 24, tintColor: tintColor}}/>
+    )
   };
 
   _onDataLoaded = (error, response) => {
@@ -42,7 +48,6 @@ export default class ArticleListComp extends Component {
   }
 
   render() {
-    const {navigate} = this.props.navigation;
     let isShowLoading = this.state.isLoading;
     let dataSource = this.state.dataSource;
 
@@ -67,7 +72,6 @@ export default class ArticleListComp extends Component {
         <View style={styles.container}>
           <BaseFlatList
             data={dataSource}
-            navigate={navigate}
           />
         </View>
       );

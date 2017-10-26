@@ -6,6 +6,7 @@ import {
   StyleSheet
 } from 'react-native';
 import { NavigationActions } from 'react-navigation';
+import NavigationHelper from '../helpers/NavigationHelper';
 import AnimatedContainer from '../widget/FadeZoomInContainer';
 
 export default class Splash extends Component {
@@ -14,15 +15,17 @@ export default class Splash extends Component {
     };
 
     componentDidMount() {
+        NavigationHelper.stackNavigation = this.props.navigation;
+
         this.timer = setTimeout(() => {
             const resetAction = NavigationActions.reset({
                 index: 0,
                 actions: [
-                    NavigationActions.navigate({routeName: 'ArticleList'})
+                    NavigationActions.navigate({routeName: 'Home'})
                 ]
             });
 
-            this.props.navigation.dispatch(resetAction);
+            NavigationHelper.stackNavigation.dispatch(resetAction);
         }, 2000);
     };
 
