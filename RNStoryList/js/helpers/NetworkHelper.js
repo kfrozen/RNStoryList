@@ -15,4 +15,8 @@ export class NetworkHelper{
     getArticleListUrl(){
         return this.serverHost + "/articles";
     }
+
+    getPlayerListUrl(){
+        return this.serverHost + "/players";
+    }
 }

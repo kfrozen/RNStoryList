@@ -1,27 +1,18 @@
 import {UIArticle} from '../modal/UIArticle'
 import {NetworkHelper} from '../helpers/NetworkHelper'
-import {UIArticleConverter} from '../converters/UIArticleConverter'
+import {BaseUIConverter} from '../converters/BaseUIConverter'
+import {BasePresenter} from './BasePresenter'
 
 export class ArticlePresenter{
 
   constructor(callback){
     this.callback = callback;
-    this.converter = new UIArticleConverter((item) => {
+    this.converter = new BaseUIConverter((item) => {
       return new UIArticle(item._id, item.title, item.image, item.releaseDate, item.content); 
     });
   }
 
   loadArticles(){
-    
-    fetch(NetworkHelper.getDefault().getArticleListUrl(), {
-      method: 'GET',
-    })
-    .then((response) => response.json())
-    .then((responseJson) => {
-      this.callback(null, this.converter.convert(responseJson));
-    })
-    .catch((error) => {
-      this.callback(error, []);
-    })
+    BasePresenter.loadData(NetworkHelper.getDefault().getArticleListUrl(), this.converter, this.callback);
   }
 }

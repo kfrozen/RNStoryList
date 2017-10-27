@@ -35,11 +35,11 @@ export default class ListItem extends Component {
     let imageStyle = [styles.image_base, styles.image_unselected]; //isSelected ? [styles.image_base, styles.image_selected] : [styles.image_base, styles.image_unselected];
 
     return (
-      <TouchableOpacity style={styles.container} activeOpacity={0.7} onPress={this._onPress}>
+      <TouchableOpacity style={styles.container} activeOpacity={0.8} onPress={this._onPress}>
         <ImageBackground source={{uri: this.item.image}} style={imageStyle}>
           <View style={styles.content_panel}>
             <Text style={styles.title}>
-              {this.item.title}
+              {this.item.name}
             </Text>
             <Text style={styles.date}>
               {this.item.releaseDate}

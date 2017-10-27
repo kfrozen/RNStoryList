@@ -29,7 +29,7 @@ export default class ArticalDetailComp extends Component{
                 <ScrollView>
                     <View style={styles.titleContainer}>
                         <Text style={styles.title}>
-                            {article.title}
+                            {article.name}
                         </Text>
                         <Text style={styles.date}>
                             {article.releaseDate}

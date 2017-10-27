@@ -1,8 +1,8 @@
 import {BaseUIModal} from '../modal/BaseUIModal'
 
 export class UIArticle extends BaseUIModal{
-  constructor(id, title, image, releaseDate, desc){
-    super(id, title, desc);
+  constructor(id, name, image, releaseDate, desc){
+    super(id, name, desc);
 
     this.image = image;
 

@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {TabNavigator, TabBarBottom, StackNavigator} from 'react-navigation';
 import ArticleListComp from './ArticleListComp';
+import PlayerListComp from './PlayerListComp';
 
 const BottomTab = TabNavigator(
     {
@@ -9,7 +10,7 @@ const BottomTab = TabNavigator(
         },
 
         Players: {
-            screen: ArticleListComp
+            screen: PlayerListComp
         },
 
         Rank: {
@@ -28,7 +29,7 @@ const BottomTab = TabNavigator(
         backBehavior:'none',
         tabBarOptions:{
             showIcon: true,
-            activeTintColor:'rgb(244, 252, 0)',
+            activeTintColor:'yellow',
             activeBackgroundColor:'black',
             inactiveTintColor:'rgb(204, 204, 204)',
             inactiveBackgroundColor:'black',

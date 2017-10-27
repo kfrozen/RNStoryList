@@ -10,9 +10,8 @@ import {
   View
 } from 'react-native';
 import BaseFlatList from '../widget/BaseFlatList';
-import {
-  ArticlePresenter
-} from '../presenters/ArticlePresenter'
+import {ArticlePresenter} from '../presenters/ArticlePresenter'
+import NavigationHelper from '../helpers/NavigationHelper'
 
 export default class ArticleListComp extends Component {
 
@@ -41,6 +40,10 @@ export default class ArticleListComp extends Component {
     this.setState({isLoading: false, dataSource: response});
   }
 
+  _onItemClicked = (item) => {
+    NavigationHelper.stackNavigation.navigate('ArticleDetail', {article: item});
+  }
+
   componentDidMount() {
     let articlePresenter = new ArticlePresenter(this._onDataLoaded);
 
@@ -54,7 +57,7 @@ export default class ArticleListComp extends Component {
     if(isShowLoading){
       return (
         <View style={styles.container}>
-          <ActivityIndicator color='blue' size='large'/>
+          <ActivityIndicator color='black' size='large'/>
         </View>
       );
     }
@@ -72,6 +75,7 @@ export default class ArticleListComp extends Component {
         <View style={styles.container}>
           <BaseFlatList
             data={dataSource}
+            onItemClicked={this._onItemClicked}
           />
         </View>
       );

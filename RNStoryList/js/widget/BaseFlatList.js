@@ -4,7 +4,6 @@ import {
   View
 } from 'react-native';
 import ListItem from './ListItem';
-import NavigationHelper from '../helpers/NavigationHelper'
 
 export default class BaseFlatList extends Component {
   constructor(props){
@@ -28,7 +27,7 @@ export default class BaseFlatList extends Component {
       //ToastAndroid.show(item.title + ' was CLICKED!', ToastAndroid.SHORT);
     });
 
-    NavigationHelper.stackNavigation.navigate('ArticleDetail', {article: item});
+    this.props.onItemClicked(item);
   }
 
   render() {

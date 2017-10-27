@@ -1,4 +1,4 @@
-export class UIArticleConverter{
+export class BaseUIConverter{
     constructor(doConvert){
         this.doConvert = doConvert;
     };

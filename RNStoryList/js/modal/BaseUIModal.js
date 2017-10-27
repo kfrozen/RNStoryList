@@ -1,8 +1,12 @@
 export class BaseUIModal{
-    constructor(id, title, desc){
+    constructor(id, name, desc){
       this.id = id;
-      this.title = title;
+      this.name = name;
       this.desc = desc;
+      this.key = this.id;
     }
     
-  }
+    setIndex(index){
+      this.index = index;
+    }
+}
