@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
+  Image,
   TouchableOpacity
 } from 'react-native';
 
@@ -24,6 +25,7 @@ export default class PlayerListItem extends Component {
             <TouchableOpacity style={container_style} activeOpacity={0.8} onPress={this._onPress}>
                 <View style = {styles.left_block}>
                     <Text style = {styles.jersey}>{this.player.jersey}</Text>
+                    <Image style = {styles.headshot} source={{uri: this.player.image}}></Image>
                 </View>
                 <View style = {styles.right_block}>
                     <Text style = {styles.name}>{this.player.name}</Text>
@@ -44,20 +46,26 @@ const styles = StyleSheet.create({
     },
     left_block: {
         flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'flex-start'
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center'
     },
     right_block: {
-        flex: 4,
-        flexDirection: "column"
+        flex: 3,
+        flexDirection: "column",
+        paddingLeft: 10
     },
     jersey: {
-        fontSize: 28,
+        width: 40,
+        fontSize: 26,
         fontWeight:'bold',
         textAlign: 'left',
-        marginLeft: 20,
         color: 'yellow'
+    },
+    headshot: {
+        width: 45,
+        height: 60,
+        resizeMode: 'cover'
     },
     name: {
         flex: 1,

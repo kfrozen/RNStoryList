@@ -8,9 +8,12 @@ export class PlayerPresenter {
     constructor(callback) {
         this.callback = callback;
         this.converter = new BaseUIConverter((item) => {
-            let info = item.age + "岁  |  " + item.nationality;
+            let info = item.age + "岁  |  " 
+                        + item.height + "  |  " 
+                        + item.weight + "  |  " 
+                        + item.nationality;
 
-            return new UIPlayer(item._id, item.name, item.jersey, item.position, info, item.link, item._section);
+            return new UIPlayer(item._id, item.name, item.jersey, item.position, info, item.link, item.image, item._section);
         });
         this.callbackWrapper = (err, response) => {
             if (err) {
