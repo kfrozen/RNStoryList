@@ -54,7 +54,8 @@ export default class ListItem extends Component {
 const styles = StyleSheet.create({
   container: {
     height: 240,
-    marginBottom: 10
+    marginBottom: 10,
+    elevation: 10
   },
   image_base: {
     flexDirection: 'column',

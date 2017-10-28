@@ -22,37 +22,42 @@ export class PlayerPresenter {
                 var midfielders = [];
                 var forwards = [];
 
+                let gkIndex = 1;
+                let dfIndex = 1;
+                let midIndex = 1;
+                let fwIndex = 1;
+
                 for (let i = 0; i < response.length; i++) {
                     let player = response[i];
 
                     if (player.sectionId == 1) {
+                        player.setIndex(gkIndex);
+
+                        gkIndex++;
+
                         goalkeepers.push(player);
                     }
                     else if (player.sectionId == 2) {
+                        player.setIndex(dfIndex);
+                        
+                        dfIndex++;
+
                         defenders.push(player);
                     }
                     else if (player.sectionId == 3) {
+                        player.setIndex(midIndex);
+
+                        midIndex++;
+
                         midfielders.push(player);
                     }
                     else if (player.sectionId == 4) {
+                        player.setIndex(fwIndex);
+
+                        fwIndex++;
+
                         forwards.push(player);
                     }
-                }
-
-                for(let index in goalkeepers){
-                    goalkeepers[index].setIndex(parseInt(index) + 1);
-                }
-
-                for(let index in defenders){
-                    defenders[index].setIndex(parseInt(index) + 1);
-                }
-
-                for(let index in midfielders){
-                    midfielders[index].setIndex(parseInt(index) + 1);
-                }
-
-                for(let index in forwards){
-                    forwards[index].setIndex(parseInt(index) + 1);
                 }
 
                 var section = [

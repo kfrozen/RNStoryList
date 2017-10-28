@@ -7,6 +7,7 @@ import {
   Image,
   ToastAndroid,
   ActivityIndicator,
+  ImageBackground,
   View
 } from 'react-native';
 import BaseFlatList from '../widget/BaseFlatList';
@@ -56,28 +57,28 @@ export default class ArticleListComp extends Component {
 
     if(isShowLoading){
       return (
-        <View style={styles.container}>
-          <ActivityIndicator color='black' size='large'/>
-        </View>
+        <ImageBackground source={require('./img/common_background.jpeg')} style={styles.container}>
+          <ActivityIndicator color='yellow' size='large'/>
+        </ImageBackground>
       );
     }
     else if(dataSource.length == 0){
       return (
-        <View style={styles.container}>
+        <ImageBackground source={require('./img/common_background.jpeg')} style={styles.container}>
           <Text style={styles.errorMsg}>
             Oops! No video is available now...
           </Text>
-        </View>
+        </ImageBackground>
       );
     }
     else{
       return (
-        <View style={styles.container}>
+        <ImageBackground source={require('./img/common_background.jpeg')} style={styles.container}>
           <BaseFlatList
             data={dataSource}
             onItemClicked={this._onItemClicked}
           />
-        </View>
+        </ImageBackground>
       );
     }
   }
@@ -86,7 +87,6 @@ export default class ArticleListComp extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    paddingTop: 10,
     justifyContent: 'center',
   },
   errorMsg: {
