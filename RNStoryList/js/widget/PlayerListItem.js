@@ -15,7 +15,7 @@ export default class PlayerListItem extends Component {
     }
 
     _onPress = () => {
-        this.props.onItemClicked(this.item);
+        this.props.onItemClicked(this.player);
     };
 
     render() {

@@ -12,6 +12,7 @@ import {PlayerPresenter} from '../presenters/PlayerPresenter';
 import PlayerListItem from '../widget/PlayerListItem';
 import CommonLoadingIndicator from '../widget/CommonLoadingIndicator';
 import CommonErrorView from '../widget/CommonErrorView';
+import NavigationHelper from '../helpers/NavigationHelper';
 
 export default class PlayerListComp extends Component{
     constructor(props){
@@ -40,7 +41,7 @@ export default class PlayerListComp extends Component{
     }
 
     _onItemClicked = (item) => {
-        //TODO
+        NavigationHelper.stackNavigation.navigate('WebView', {uri: item.link, title: item.jersey + ". " + item.name});
     }
 
     _renderHeaderItem = ({section}) => {
