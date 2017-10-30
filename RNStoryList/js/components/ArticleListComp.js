@@ -11,8 +11,10 @@ import {
   View
 } from 'react-native';
 import BaseFlatList from '../widget/BaseFlatList';
-import {ArticlePresenter} from '../presenters/ArticlePresenter'
-import NavigationHelper from '../helpers/NavigationHelper'
+import {ArticlePresenter} from '../presenters/ArticlePresenter';
+import NavigationHelper from '../helpers/NavigationHelper';
+import CommonLoadingIndicator from '../widget/CommonLoadingIndicator';
+import CommonErrorView from '../widget/CommonErrorView';
 
 export default class ArticleListComp extends Component {
 
@@ -32,7 +34,7 @@ export default class ArticleListComp extends Component {
     headerLeft: null,
     tabBarIcon: ({focused, tintColor}) => (
       <Image
-          source={require('./img/bottombar_icon_articles.png')}
+          source={require('../img/bottombar_icon_articles.png')}
           style={{width: 24, height: 24, tintColor: tintColor}}/>
     )
   };
@@ -57,23 +59,17 @@ export default class ArticleListComp extends Component {
 
     if(isShowLoading){
       return (
-        <ImageBackground source={require('./img/common_background.jpeg')} style={styles.container}>
-          <ActivityIndicator color='yellow' size='large'/>
-        </ImageBackground>
+        <CommonLoadingIndicator/>
       );
     }
     else if(dataSource.length == 0){
       return (
-        <ImageBackground source={require('./img/common_background.jpeg')} style={styles.container}>
-          <Text style={styles.errorMsg}>
-            Oops! No video is available now...
-          </Text>
-        </ImageBackground>
+        <CommonErrorView errorMessage='Oops! No video is available now...'/>
       );
     }
     else{
       return (
-        <ImageBackground source={require('./img/common_background.jpeg')} style={styles.container}>
+        <ImageBackground source={require('../img/common_background.jpeg')} style={styles.container}>
           <BaseFlatList
             data={dataSource}
             onItemClicked={this._onItemClicked}
@@ -88,13 +84,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-  },
-  errorMsg: {
-    flexWrap: 'wrap',
-    fontSize: 20,
-    fontWeight:'bold',
-    textAlign: 'center',
-    alignSelf: 'center',
-    color: '#666666',
   }
 });

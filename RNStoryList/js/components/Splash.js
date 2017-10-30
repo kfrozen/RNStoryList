@@ -37,7 +37,7 @@ export default class Splash extends Component {
         return (
             <View style={styles.container}>
                 <AnimatedContainer style={{width: 175, height: 175}}>
-                    <Image style={styles.image} source={require('./img/splash_logo.png')}/>
+                    <Image style={styles.image} source={require('../img/splash_logo.png')}/>
                 </AnimatedContainer>
             </View>
         )

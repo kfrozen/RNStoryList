@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     },
     jersey: {
         width: 40,
-        fontSize: 26,
+        fontSize: 27,
         fontWeight:'bold',
         textAlign: 'left',
         color: 'yellow'
@@ -69,14 +69,14 @@ const styles = StyleSheet.create({
     },
     name: {
         flex: 1,
-        fontSize: 18,
+        fontSize: 17,
         fontWeight:'bold',
         textAlignVertical: 'center',
         color: 'yellow'
     },
     info: {
         flex: 1,
-        fontSize: 13,
+        fontSize: 12,
         textAlignVertical: 'center',
         color: 'white'
     },

@@ -8,8 +8,10 @@ import {
   ActivityIndicator,
   ImageBackground
 } from 'react-native';
-import {PlayerPresenter} from '../presenters/PlayerPresenter'
-import PlayerListItem from '../widget/PlayerListItem'
+import {PlayerPresenter} from '../presenters/PlayerPresenter';
+import PlayerListItem from '../widget/PlayerListItem';
+import CommonLoadingIndicator from '../widget/CommonLoadingIndicator';
+import CommonErrorView from '../widget/CommonErrorView';
 
 export default class PlayerListComp extends Component{
     constructor(props){
@@ -28,7 +30,7 @@ export default class PlayerListComp extends Component{
         headerLeft: null,
         tabBarIcon: ({focused, tintColor}) => (
           <Image
-              source={require('./img/bottombar_icon_players.png')}
+              source={require('../img/bottombar_icon_players.png')}
               style={{width: 24, height: 24, tintColor: tintColor}}/>
         )
     };
@@ -62,26 +64,20 @@ export default class PlayerListComp extends Component{
     render() {
         let isShowLoading = this.state.isLoading;
         let sections = this.state.dataSource;
-    
+
         if(isShowLoading){
-          return (
-            <ImageBackground source={require('./img/common_background.jpeg')} style={styles.container}>
-              <ActivityIndicator color='yellow' size='large'/>
-            </ImageBackground>
-          );
+            return (
+              <CommonLoadingIndicator/>
+            );
         }
         else if(sections.length == 0){
-          return (
-            <ImageBackground source={require('./img/common_background.jpeg')} style={styles.container}>
-              <Text style={styles.errorMsg}>
-                Oops! No Player info is available now...
-              </Text>
-            </ImageBackground>
-          );
+            return (
+              <CommonErrorView errorMessage='Oops! Players are in party now... Please come back later ^_^'/>
+            );
         }
         else{
-          return (
-            <ImageBackground source={require('./img/common_background.jpeg')} style={styles.container}>
+            return (
+              <ImageBackground source={require('../img/common_background.jpeg')} style={styles.container}>
                 <SectionList
                     renderSectionHeader={this._renderHeaderItem}
                     renderItem={this._renderItem}
@@ -96,14 +92,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-    },
-    errorMsg: {
-        flexWrap: 'wrap',
-        fontSize: 20,
-        fontWeight:'bold',
-        textAlign: 'center',
-        alignSelf: 'center',
-        color: 'yellow',
     },
     header_container: {
         height: 48,

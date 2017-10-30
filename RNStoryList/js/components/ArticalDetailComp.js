@@ -25,7 +25,7 @@ export default class ArticalDetailComp extends Component{
         const article = params.article;
 
         return (
-            <ImageBackground source={require('./img/common_background.jpeg')} style={{flex: 1}}>
+            <ImageBackground source={require('../img/common_background.jpeg')} style={{flex: 1}}>
                 <ScrollView>
                     <View style={styles.titleContainer}>
                         <Text style={styles.title}>
