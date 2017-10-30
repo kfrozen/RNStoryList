@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {
     WebView,
     View,
@@ -9,7 +9,7 @@ import {
 import CommonLoadingIndicator from '../widget/CommonLoadingIndicator';
 import CommonErrorView from '../widget/CommonErrorView';
 
-export default class WebViewComp extends Component{
+export default class WebViewComp extends PureComponent{
     static navigationOptions = ({navigation}) => ({
         title: navigation.state.params.title,
         headerStyle: {backgroundColor: 'black'},

@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {
     StyleSheet,
     ActivityIndicator,
     ImageBackground
 } from 'react-native';
 
-export default class CommonLoadingIndicator extends Component{
+export default class CommonLoadingIndicator extends PureComponent{
     render(){
         return (
             <ImageBackground source={require('../img/common_background.jpeg')} style={styles.container}>

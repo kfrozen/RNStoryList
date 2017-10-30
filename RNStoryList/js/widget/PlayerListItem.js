@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import {
   StyleSheet,
   Text,
@@ -7,7 +7,7 @@ import {
   TouchableOpacity
 } from 'react-native';
 
-export default class PlayerListItem extends Component {
+export default class PlayerListItem extends PureComponent {
     constructor(props){
         super(props);
 

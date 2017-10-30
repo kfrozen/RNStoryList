@@ -73,13 +73,14 @@ export default class PlayerListComp extends Component{
         }
         else if(sections.length == 0){
             return (
-              <CommonErrorView errorMessage='Oops! Players are in party now... Please come back later ^_^'/>
+              <CommonErrorView errorMessage={'Oops! Players are in party now... Please come back later ^_^'}/>
             );
         }
         else{
             return (
               <ImageBackground source={require('../img/common_background.jpeg')} style={styles.container}>
                 <SectionList
+                    stickySectionHeadersEnabled = {true}
                     renderSectionHeader={this._renderHeaderItem}
                     renderItem={this._renderItem}
                     sections={sections}/>
