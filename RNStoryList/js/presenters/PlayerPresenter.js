@@ -12,8 +12,11 @@ export class PlayerPresenter {
                         + item.height + "  |  " 
                         + item.weight + "  |  " 
                         + item.nationality;
+            
+            let player = (new UIPlayer(item._id, item.name)).pJersey(item.jersey).pPosition(item.position)
+                            .pInfo(info).pImage(item.image).pLink(item.link).pSectionId(item._section);
 
-            return new UIPlayer(item._id, item.name, item.jersey, item.position, info, item.link, item.image, item._section);
+            return player;
         });
         this.callbackWrapper = (err, response) => {
             if (err) {

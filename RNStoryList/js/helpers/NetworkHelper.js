@@ -19,4 +19,8 @@ export class NetworkHelper{
     getPlayerListUrl(){
         return this.serverHost + "/players";
     }
+
+    getRanksUrl(){
+        return this.serverHost + "/ranks";
+    }
 }

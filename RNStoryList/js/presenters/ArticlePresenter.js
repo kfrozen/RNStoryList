@@ -8,7 +8,9 @@ export class ArticlePresenter{
   constructor(callback){
     this.callback = callback;
     this.converter = new BaseUIConverter((item) => {
-      return new UIArticle(item._id, item.title, item.image, item.releaseDate, item.content); 
+      let article = (new UIArticle(item._id, item.title, item.content)).aImage(item.image).aReleaseDate(item.releaseDate);
+
+      return article; 
     });
   }
 
