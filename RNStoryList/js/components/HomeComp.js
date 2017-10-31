@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {TabNavigator, TabBarBottom, StackNavigator} from 'react-navigation';
 import ArticleListComp from './ArticleListComp';
 import PlayerListComp from './PlayerListComp';
+import RankListComp from './RankListComp';
 
 const BottomTab = TabNavigator(
     {
@@ -14,7 +15,7 @@ const BottomTab = TabNavigator(
         },
 
         Rank: {
-            screen: ArticleListComp
+            screen: RankListComp
         }
     },
 

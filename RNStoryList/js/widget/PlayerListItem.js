@@ -19,7 +19,8 @@ export default class PlayerListItem extends PureComponent {
     };
 
     render() {
-        let container_style = (this.player.index & 1) != 0 ? [styles.container_base] : [styles.container_base, styles.container_strip_bg];
+        let container_style = (this.player.index & 1) != 0 ? [styles.container_base] 
+                            : [styles.container_base, styles.container_strip_bg];
 
         return (
             <TouchableOpacity style={container_style} activeOpacity={0.8} onPress={this._onPress}>
