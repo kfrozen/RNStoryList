@@ -42,7 +42,7 @@ export default class RankListComp extends Component{
     }
 
     _onItemClicked = (item) => {
-        //TODO navigate to team detail page
+        NavigationHelper.stackNavigation.navigate('WebView', {uri: item.link, title: item.name});
     }
 
     _renderHeaderItem = ({section}) => {
