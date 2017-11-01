@@ -10,7 +10,7 @@ export class RankPresenter{
 
         this.converter = new BaseUIConverter(function(item){
             let rank = (new UIRank(item._id, item.team)).rGames(item.total).rWon(item.won)
-                        .rTied(item.tied).rLost(item.lost)
+                        .rTied(item.tied).rLost(item.lost).rLink(item.link).rLogo(item.logo)
                         .rGoalvsFumble(item.goal + '/' + item.fumble).rScores(item.scores);
 
             return rank;

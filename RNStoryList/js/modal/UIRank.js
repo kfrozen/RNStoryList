@@ -14,6 +14,18 @@ export class UIRank extends BaseUIModal{
         super.setIndex(rank);
     }
 
+    rLink(link){
+        this.link = link;
+
+        return this;
+    }
+
+    rLogo(logo){
+        this.logo = logo;
+
+        return this;
+    }
+
     rType(type){
         this.type = type;
 

@@ -3,9 +3,9 @@ import {
     StyleSheet,
     Text,
     View,
+    Image,
     TouchableOpacity
 } from 'react-native';
-import {UIRank} from '../modal/UIRank';
 
 export default class RankListItem extends PureComponent{
     constructor(props){
@@ -17,22 +17,17 @@ export default class RankListItem extends PureComponent{
     _onPress = () => {this.props.onItemClicked(this.rank)};
 
     render(){
-        let containerStyle = (this.rank.type == UIRank.sRANK_TYPE_HEADER) ? [styles.container_base, styles.container_header]
-                            : ((this.rank.index & 1) != 0 ? [styles.container_base] 
-                            : [styles.container_base, styles.container_strip_bg]);
+        let containerStyle = ((this.rank.index & 1) != 0 ? [styles.container_base] : [styles.container_base, styles.container_strip_bg]);
 
-        let headerNormalCellStyle = [styles.text_base, styles.text_header, styles.flex_normal];
-        let headerTeamNameCellStyle = [styles.text_team_name, styles.text_header, styles.flex_team_name];
-        let headerGoalFumbleCellStyle = [styles.text_base, styles.text_header, styles.flex_goal_fumble];
-
-        let teamNameCellStyle = [styles.text_team_name, styles.text_normal, styles.flex_team_name];
-        let goalFumbleCellStyle = [styles.text_base, styles.text_normal, styles.flex_goal_fumble];
-        let normalCellStyle = [styles.text_base, styles.text_normal, styles.flex_normal];
-        let rankCellRedStyle = [styles.text_rank_base, styles.text_rank_red, styles.flex_normal];
-        let rankCellBlueStyle = [styles.text_rank_base, styles.text_rank_blue, styles.flex_normal];
-        let rankCellYellowStyle = [styles.text_rank_base, styles.text_rank_yellow, styles.flex_normal];
-        let rankCellWhiteStyle = [styles.text_rank_base, styles.text_rank_white, styles.flex_normal];
-        let rankCellGreenStyle = [styles.text_rank_base, styles.text_rank_green, styles.flex_normal];
+        let teamNameCellStyle = [styles.container_base, styles.flex_team_name];
+        let teamNameTextStyle = [styles.text_base, styles.text_team_name];
+        let goalFumbleCellStyle = [styles.text_base, styles.flex_goal_fumble];
+        let normalCellStyle = [styles.text_base, styles.flex_normal];
+        let rankCellRedStyle = [styles.text_base, styles.text_rank_base, styles.text_rank_red, styles.flex_normal];
+        let rankCellBlueStyle = [styles.text_base, styles.text_rank_base, styles.text_rank_blue, styles.flex_normal];
+        let rankCellYellowStyle = [styles.text_base, styles.text_rank_base, styles.text_rank_yellow, styles.flex_normal];
+        let rankCellWhiteStyle = [styles.text_base, styles.text_rank_base, styles.text_rank_white, styles.flex_normal];
+        let rankCellGreenStyle = [styles.text_base, styles.text_rank_base, styles.text_rank_green, styles.flex_normal];
 
         let rankCellStyle = rankCellWhiteStyle;
         if(this.rank.index >= 1 && this.rank.index <= 3){
@@ -49,32 +44,33 @@ export default class RankListItem extends PureComponent{
         }
 
         return (
-            <TouchableOpacity style={containerStyle} activeOpacity={0.8} onPress={this._onPress}>
-                <Text style={(this.rank.type == UIRank.sRANK_TYPE_HEADER) ? headerNormalCellStyle : rankCellStyle}>
+            <View style={containerStyle}>
+                <Text style={rankCellStyle}>
                     {this.rank.rank}
                 </Text>
-                <Text style={(this.rank.type == UIRank.sRANK_TYPE_HEADER) ? headerTeamNameCellStyle : teamNameCellStyle}>
-                    {this.rank.name}
-                </Text>
-                <Text style={(this.rank.type == UIRank.sRANK_TYPE_HEADER) ? headerNormalCellStyle : normalCellStyle}>
+                <TouchableOpacity style={teamNameCellStyle} activeOpacity={0.8} onPress={this._onPress}>
+                    <Image style={styles.team_logo} source={{uri: this.rank.logo}}/>
+                    <Text style={teamNameTextStyle}>{this.rank.name}</Text>
+                </TouchableOpacity>
+                <Text style={normalCellStyle}>
                     {this.rank.games}
                 </Text>
-                <Text style={(this.rank.type == UIRank.sRANK_TYPE_HEADER) ? headerNormalCellStyle : normalCellStyle}>
+                <Text style={normalCellStyle}>
                     {this.rank.won}
                 </Text>
-                <Text style={(this.rank.type == UIRank.sRANK_TYPE_HEADER) ? headerNormalCellStyle : normalCellStyle}>
+                <Text style={normalCellStyle}>
                     {this.rank.tied}
                 </Text>
-                <Text style={(this.rank.type == UIRank.sRANK_TYPE_HEADER) ? headerNormalCellStyle : normalCellStyle}>
+                <Text style={normalCellStyle}>
                     {this.rank.lost}
                 </Text>
-                <Text style={(this.rank.type == UIRank.sRANK_TYPE_HEADER) ? headerGoalFumbleCellStyle : goalFumbleCellStyle}>
+                <Text style={goalFumbleCellStyle}>
                     {this.rank.goal_fumble}
                 </Text>
-                <Text style={(this.rank.type == UIRank.sRANK_TYPE_HEADER) ? headerNormalCellStyle : normalCellStyle}>
+                <Text style={normalCellStyle}>
                     {this.rank.scores}
                 </Text>
-            </TouchableOpacity>
+            </View>
         );
     }
 }
@@ -88,50 +84,42 @@ const styles = StyleSheet.create({
     container_strip_bg:{
         backgroundColor: 'rgba(0, 0, 0, 0.4)'
     },
-    container_header:{
-        backgroundColor: 'yellow'
+    team_logo: {
+        width: 32,
+        height: 32
     },
     text_base: {
-        textAlign: 'center',
         fontSize: 13,
-    },
-    text_header: {
-        fontWeight: 'bold',
-        color: 'black'
-    },
-    text_normal: {
+        textAlign: 'center',
         color: 'white'
     },
     text_team_name: {
         textAlign: 'left',
-        fontSize: 13,
+        color: 'yellow',
+        paddingLeft: 10
     },
     text_rank_base: {
         fontWeight: 'bold',
         textAlign: 'left',
-        paddingLeft: 5,
-        fontSize: 13
+        paddingLeft: 10
     },
     text_rank_red: {
         color: 'red',
     },
     text_rank_blue: {
-        color: 'deepskyblue',
-        fontWeight: 'bold'
+        color: 'deepskyblue'
     },
     text_rank_yellow: {
-        color: 'yellow',
-        fontWeight: 'bold'
+        color: 'yellow'
     },
     text_rank_white: {
-        color: 'white',
-        fontWeight: 'bold'
+        color: 'white'
     },
     text_rank_green: {
-        color: 'green',
-        fontWeight: 'bold'
+        color: 'green'
     },
     flex_team_name: {
+        justifyContent: 'flex-start',
         flex: 3
     },
     flex_goal_fumble: {

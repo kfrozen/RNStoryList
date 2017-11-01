@@ -10,6 +10,7 @@ import {
 } from 'react-native';
 import {RankPresenter} from '../presenters/RankPresenter';
 import RankListItem from '../widget/RankListItem';
+import RankListHeaderItem from '../widget/RankListHeaderItem';
 import CommonLoadingIndicator from '../widget/CommonLoadingIndicator';
 import CommonErrorView from '../widget/CommonErrorView';
 import NavigationHelper from '../helpers/NavigationHelper';
@@ -46,7 +47,7 @@ export default class RankListComp extends Component{
 
     _renderHeaderItem = ({section}) => {
         return (
-            <RankListItem bean={section.key}/>
+            <RankListHeaderItem bean={section.key}/>
         )
     }
 
