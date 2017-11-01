@@ -62,7 +62,8 @@ const styles = StyleSheet.create({
       fontWeight:'bold',
       textAlignVertical: 'center',
       color: 'yellow',
-      marginLeft: 10
+      marginLeft: 10,
+      backgroundColor: 'transparent'
     },
     date: {
         flex:1,
@@ -70,7 +71,8 @@ const styles = StyleSheet.create({
         fontWeight:'bold',
         textAlignVertical: 'center',
         color: 'white',
-        marginLeft: 10
+        marginLeft: 10,
+        backgroundColor: 'transparent'
     },
     description: {
         flex:1,
@@ -79,5 +81,6 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         marginRight: 10,
         marginBottom: 20,
+        backgroundColor: 'transparent'
     }
   });

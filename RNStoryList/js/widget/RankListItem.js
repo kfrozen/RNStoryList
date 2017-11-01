@@ -79,7 +79,8 @@ const styles = StyleSheet.create({
     container_base: {
         height: 48,
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'transparent'
     },
     container_strip_bg:{
         backgroundColor: 'rgba(0, 0, 0, 0.4)'
@@ -89,14 +90,14 @@ const styles = StyleSheet.create({
         height: 32
     },
     text_base: {
-        fontSize: 13,
+        fontSize: 12,
         textAlign: 'center',
         color: 'white'
     },
     text_team_name: {
         textAlign: 'left',
         color: 'yellow',
-        paddingLeft: 10
+        paddingLeft: 5
     },
     text_rank_base: {
         fontWeight: 'bold',

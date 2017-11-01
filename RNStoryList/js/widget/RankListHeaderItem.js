@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
     },
     text_base: {
         textAlign: 'center',
-        fontSize: 13,
+        fontSize: 12,
         fontWeight: 'bold',
         color: 'black'
     },

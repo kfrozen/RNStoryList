@@ -41,6 +41,7 @@ const styles = StyleSheet.create({
     container_base: {
         height: 75,
         flexDirection: 'row',
+        backgroundColor: 'transparent'
     },
     container_strip_bg:{
         backgroundColor: 'rgba(0, 0, 0, 0.4)'

@@ -1,4 +1,4 @@
-package com.rnstorylist;
+package com.bvb;
 
 import com.facebook.react.ReactActivity;
 
